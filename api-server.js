@@ -9,7 +9,12 @@ const app = express();
 
 const port = process.env.API_PORT || 3001;
 const appPort = process.env.SERVER_PORT || 3000;
-const appOrigin = authConfig.appOrigin || `http://localhost:${appPort}`;
+// Ignore unset values and leftover "{...}" placeholders from the example config,
+// otherwise CORS would be configured with an invalid origin.
+const isPlaceholder = (value) => !value || /^\{.*\}$/.test(value.trim());
+const appOrigin = isPlaceholder(authConfig.appOrigin)
+  ? `http://localhost:${appPort}`
+  : authConfig.appOrigin;
 
 if (
   !authConfig.domain ||

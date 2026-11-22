@@ -116,7 +116,7 @@ const NavBar = () => {
               <Nav className="d-md-none" navbar>
                 <NavItem>
                   <Button
-                    id="qsLoginBtn"
+                    id="qsLoginBtnMobile"
                     color="primary"
                     block
                     onClick={() => loginWithRedirect({})}
@@ -156,7 +156,7 @@ const NavBar = () => {
                   <FontAwesomeIcon icon="power-off" className="mr-3" />
                   <RouterNavLink
                     to="#"
-                    id="qsLogoutBtn"
+                    id="qsLogoutBtnMobile"
                     onClick={() => logoutWithRedirect()}
                   >
                     Log out
